@@ -14,7 +14,7 @@ import java.util.Set;
 /**
  * Created by timeloveboy on 16/5/30.
  */
-public class MainHandler implements HttpHandler {
+public class MyHandler implements HttpHandler {
 
     /**
      * /api?level=10&location=13.332
@@ -23,6 +23,7 @@ public class MainHandler implements HttpHandler {
     public void handle(HttpExchange exchange) throws IOException {
         String requestMethod = exchange.getRequestMethod();
         URI url=exchange.getRequestURI();//获取url链接饿信息
+        //演示rename refactor->rename
 
         InputStream inputStream=exchange.getRequestBody();//除了get以外的方法时候,将信息放入body中
         //使用get方法时候将信息放入url中
