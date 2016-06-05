@@ -4,8 +4,6 @@
     <list default="true" id="22b9894b-7ca4-40ad-afe0-3169dff18342" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xyz/moexiang/Main.java" afterPath="$PROJECT_DIR$/src/xyz/moexiang/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/xyz/moexiang/MainHandler.java" afterPath="$PROJECT_DIR$/src/xyz/moexiang/MainHandler.java" />
     </list>
     <ignored path="horsepriceapi.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,21 +28,7 @@
     <favorites_list name="horsepriceapi" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-            <state split_layout="SPLIT">
-              <first_editor relative-caret-position="110">
-                <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
-                <folding />
-              </first_editor>
-              <second_editor />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -640,7 +624,7 @@
       <workItem from="1464605414651" duration="491000" />
       <workItem from="1464696825118" duration="1179000" />
       <workItem from="1464698012136" duration="2044000" />
-      <workItem from="1464700064202" duration="3461000" />
+      <workItem from="1464700064202" duration="3725000" />
     </task>
     <task id="LOCAL-00001" summary="~">
       <created>1464606044112</created>
@@ -649,11 +633,25 @@
       <option name="project" value="LOCAL" />
       <updated>1464606044112</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改说明">
+      <created>1465138773558</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1465138773558</updated>
+    </task>
+    <task id="LOCAL-00003" summary="修改说明">
+      <created>1465138874437</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1465138874437</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9051000" />
+    <option name="totallyTimeSpent" value="9315000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="80" width="1077" height="627" extended-state="0" />
@@ -700,7 +698,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="~" />
-    <option name="LAST_COMMIT_MESSAGE" value="~" />
+    <MESSAGE value="修改说明" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改说明" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -903,8 +902,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="110">
-            <caret line="9" column="2" selection-start-line="9" selection-start-column="2" selection-end-line="9" selection-end-column="2" />
+          <first_editor relative-caret-position="75">
+            <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
             <folding />
           </first_editor>
           <second_editor />
