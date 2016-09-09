@@ -10,5 +10,4 @@ public class app {
         Server s = Server.getInstance().RegisterModulePath("com.moe.module").SetPort(8090);
         s.Run();
     }
-
 }
