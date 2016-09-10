@@ -11,7 +11,7 @@ public class DefaultHandle {
     }
 
     public void GET(HttpRequest req, HttpResponse resp) throws IOException {
-        resp.code(404).write("hello");
+        resp.code(404).close();
     }
 
     public void POST(HttpRequest req, HttpResponse resp) throws IOException {

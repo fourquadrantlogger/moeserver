@@ -49,7 +49,7 @@ public class Routers implements HttpHandler {
             }
 
         } catch (ClassNotFoundException e) {
-
+            resp.write("");
         } catch (Exception e) {
             e.printStackTrace();
         }
