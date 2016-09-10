@@ -1,7 +1,14 @@
 # java http server
 
 >简易java mvc 框架
-
+## using marven
+```
+<dependency>
+  <groupId>com.github.timeloveboy</groupId>
+  <artifactId>moeserver</artifactId>
+  <version>0.0.1</version>
+</dependency>
+```
 ## 使用说明
 
 + 1.指定您的modulepackage路径和端口号
