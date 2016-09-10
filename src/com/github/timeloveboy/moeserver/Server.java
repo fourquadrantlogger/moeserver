@@ -1,4 +1,4 @@
-package xyz.moeserver;
+package com.github.timeloveboy.moeserver;
 
 import com.sun.net.httpserver.HttpServer;
 

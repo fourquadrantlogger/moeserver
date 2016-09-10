@@ -1,4 +1,4 @@
-package xyz.moeserver;
+package com.github.timeloveboy.moeserver;
 
 import java.io.IOException;
 

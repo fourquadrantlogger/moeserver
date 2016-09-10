@@ -1,4 +1,4 @@
-package xyz.moeserver;
+package com.github.timeloveboy.moeserver;
 
 import com.sun.net.httpserver.HttpExchange;
 
@@ -22,7 +22,6 @@ public class HttpResponse {
         return this;
     }
 
-    ;
 
     public HttpResponse header(String key, String value) {
         if (exchange.getResponseHeaders().containsKey(key)) {
