@@ -1,6 +1,6 @@
 package com.moe;
 
-import xyz.moeserver.Server;
+import com.github.timeloveboy.moeserver.Server;
 
 /**
  * Created by timeloveboy on 16-9-10.
