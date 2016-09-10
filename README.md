@@ -2,7 +2,7 @@
 
 >简易java mvc 框架
 
-## using marven
+## using maven
 ```
 <dependency>
   <groupId>com.github.timeloveboy</groupId>

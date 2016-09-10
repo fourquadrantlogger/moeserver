@@ -22,7 +22,6 @@ public class HttpResponse {
         return this;
     }
 
-
     public HttpResponse header(String key, String value) {
         if (exchange.getResponseHeaders().containsKey(key)) {
             List<String> values = new LinkedList<>();
