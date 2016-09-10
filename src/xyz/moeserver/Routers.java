@@ -47,6 +47,9 @@ public class Routers implements HttpHandler {
                 }
                 routermap.put(router, modulehandle);
             }
+
+        } catch (ClassNotFoundException e) {
+
         } catch (Exception e) {
             e.printStackTrace();
         }

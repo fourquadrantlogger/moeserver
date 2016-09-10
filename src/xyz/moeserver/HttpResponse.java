@@ -35,7 +35,21 @@ public class HttpResponse {
         return this;
     }
 
-    ;
+    public HttpResponse setcookie(String key, String value) {
+        String cookie = " " + key + "=" + value;
+        List<String> values = new LinkedList<>();
+        if (!exchange.getResponseHeaders().containsKey("Set-Cookie")) {
+            exchange.getResponseHeaders().add("Set-Cookie", cookie);
+        } else {
+            values = exchange.getResponseHeaders().get("Set-Cookie");
+        }
+
+        values.add(cookie);
+        exchange.getResponseHeaders().replace("Set-Cookie", values);
+
+        return this;
+    }
+
 
     public void write(String data) throws IOException {
         exchange.sendResponseHeaders(code, 0);
