@@ -7,7 +7,9 @@
     <name>moe java api server</name>
     <url>https://github.com/timeloveboy/moeserver</url>
     <description> moeserver </description>
-
+    <build>
+        <sourceDirectory>src</sourceDirectory>
+    </build>
     <scm>
         <connection>scm:git:git://github.com/timeloveboy/moeserver.git</connection>
         <developerConnection>scm:git:git@github.com/timeloveboy/moeserver.git</developerConnection>
