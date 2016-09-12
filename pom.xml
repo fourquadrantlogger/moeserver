@@ -87,6 +87,13 @@
                             </execution>
                         </executions>
                     </plugin>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-release-plugin</artifactId>
+                        <configuration>
+                            <goals>deploy nexus-staging:release</goals>
+                        </configuration>
+                    </plugin>
                 </plugins>
             </build>
             <distributionManagement>
@@ -110,6 +117,12 @@
             <email>734991033@qq.com</email>
         </developer>
     </developers>
+    <licenses>
+        <license>
+            <name>The Apache License, Version 2.0</name>
+            <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+        </license>
+    </licenses>
     <properties>
         <java-version>1.8</java-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
