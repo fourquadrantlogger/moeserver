@@ -35,3 +35,39 @@ public class app {
 ```
 
 现在，请访问[http://localhost:8090/Buy](http://localhost:8090/Buy)
+
+## 函数列表
+#### Server
++ getInstance()
++ SetPort(80)
++ RegisterModulePath("com.website.module")
++ Run()
+
+#### Handle
+请覆盖DefauldHandle类的以下方法
+
++ GET
++ POST
++ PUT
++ HEAD
++ DELETE
+
+#### Request
+以下成员均可访问
+```
+    public final InetSocketAddress remoteAddress;
+    public final InputStream body;
+    public final String requestMethod;
+    public final URI url;
+    public final Headers headers;
+    public final Map<String, String> cookies;
+```
+
+
+#### Response
++ code(200)
++ header("Content-Type","text/html")
++ setcookie("Content-Type","text/html")
++ write("")
++ write(bytes)
++ close()

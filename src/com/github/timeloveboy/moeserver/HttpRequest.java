@@ -30,10 +30,10 @@ public class HttpRequest {
         body = exchange.getRequestBody();
     }
 
-    public InetSocketAddress remoteAddress;
-    public InputStream body;
-    public String requestMethod;
-    public URI url;
-    public Headers headers;
-    public Map<String, String> cookies;
+    public final InetSocketAddress remoteAddress;
+    public final InputStream body;
+    public final String requestMethod;
+    public final URI url;
+    public final Headers headers;
+    public final Map<String, String> cookies;
 }
