@@ -52,6 +52,13 @@ public class app {
 + HEAD
 + DELETE
 
+> moeserver与restful风格的api设计规范可以完美搭配。
+您可以：
+＋ 在get中执行数据的select操作
+＋ 在post中执行insert操作
+＋ 在put中执行update操作
+＋ 在delete中执行delete操作。
+
 #### Request
 以下成员均可访问
 ```
