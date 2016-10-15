@@ -54,6 +54,7 @@ public class app {
 
 > moeserver与restful风格的api设计规范可以完美搭配。
 您可以：
+
 ＋ 在get中执行数据的select操作
 ＋ 在post中执行insert操作
 ＋ 在put中执行update操作
