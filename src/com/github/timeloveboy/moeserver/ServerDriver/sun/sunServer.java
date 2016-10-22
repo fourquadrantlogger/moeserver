@@ -4,7 +4,6 @@ import com.github.timeloveboy.moeserver.IHttpServer;
 import com.sun.net.httpserver.HttpServer;
 
 import java.net.InetSocketAddress;
-import java.util.concurrent.Executors;
 
 /**
  * Created by timeloveboy on 2016/10/22.
@@ -30,7 +29,7 @@ public class sunServer implements IHttpServer {
     @Override
     public void start() {
         server.createContext("/", new sunRouterDispatcher(modulePath));//所有的路由,都交给Mainhandler处理
-        server.setExecutor(Executors.newCachedThreadPool());
+        server.setExecutor(null);
         server.start();
     }
 }

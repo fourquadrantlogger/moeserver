@@ -70,6 +70,7 @@ public class HttpResponse extends IHttpResponse {
 
         ctx.write(response);
         ctx.flush();
+        ctx.close();
     }
 
 
@@ -81,6 +82,7 @@ public class HttpResponse extends IHttpResponse {
 
         ctx.write(response);
         ctx.flush();
+        ctx.close();
     }
 
     @Override

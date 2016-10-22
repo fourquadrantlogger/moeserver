@@ -83,3 +83,21 @@ s.Run();
 + write("")
 + write(bytes)
 + close()
+
+#### 不服跑个分
+
++ sun.线程模式
+
+```
+localhost:~ timeloveboy$ ab -n 10000 -c 10  http://localhost:8090/I
+Requests per second:    4389.81 [#/sec] (mean)
+```
+
++ netty事件模式
+
+```
+localhost:~ timeloveboy$ ab -n 10000 -c 10  http://localhost:8090/I
+Requests per second:    5849.84 [#/sec] (mean)
+```
+
+每次的测试结果，浮动比较大，感觉其实差不多

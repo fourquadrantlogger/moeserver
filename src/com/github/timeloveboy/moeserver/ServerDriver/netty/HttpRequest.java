@@ -3,6 +3,7 @@ package com.github.timeloveboy.moeserver.ServerDriver.netty;
 import com.github.timeloveboy.moeserver.IHttpRequest;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.handler.codec.http.HttpHeaders;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -22,27 +23,11 @@ public class HttpRequest extends IHttpRequest {
             try {
                 url = new URI(request.getUri());
                 requestMethod = request.getMethod().name();
-                headers = new HashMap<>();
-                for (Map.Entry i : request.headers()) {
-                    headers.put(i.getKey().toString(), i.getValue().toString());
-                }
-                String cs = headers.get("Cookie");
-                cookies = new HashMap<>();
-                if (cs != null)
-                    for (int i = 0; i < cs.split(";").length; i++) {
-                        String[] s = cs.split("")[i].split("=");
-                        if (s.length == 2) {
-                            cookies.put(s[0], s[1]);
-                        }
-                    }
                 String clientIP = request.headers().get("X-Forwarded-For");
                 if (clientIP == null) {
                     remoteAddress = (InetSocketAddress) ctx.channel().remoteAddress();
                 }
-                ByteBuf buf = request.content();
-                byte[] bs = new byte[buf.readableBytes()];
-                buf.readBytes(bs);
-                body = new ByteArrayInputStream(bs);
+                buf = request.content();
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -57,6 +42,9 @@ public class HttpRequest extends IHttpRequest {
 
     @Override
     public InputStream getBody() {
+        byte[] bs = new byte[buf.readableBytes()];
+        buf.readBytes(bs);
+        InputStream body = new ByteArrayInputStream(bs);
         return body;
     }
 
@@ -72,18 +60,34 @@ public class HttpRequest extends IHttpRequest {
 
     @Override
     public Map<String, String> getHeaders() {
+        Map<String, String> headers = new HashMap<>();
+        for (Map.Entry i : httpheaders) {
+            headers.put(i.getKey().toString(), i.getValue().toString());
+        }
         return headers;
     }
 
     @Override
     public Map<String, String> getCookies() {
+        if (cookies != null) {
+            return cookies;
+        }
+        String cs = httpheaders.get("Cookie");
+        cookies = new HashMap<>();
+        if (cs != null)
+            for (int i = 0; i < cs.split(";").length; i++) {
+                String[] s = cs.split("")[i].split("=");
+                if (s.length == 2) {
+                    cookies.put(s[0], s[1]);
+                }
+            }
         return cookies;
     }
 
     public InetSocketAddress remoteAddress;
-    public InputStream body;
+    public ByteBuf buf;
     public String requestMethod;
     public URI url;
-    public Map<String, String> headers;
+    public HttpHeaders httpheaders;
     public Map<String, String> cookies;
 }

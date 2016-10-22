@@ -10,7 +10,7 @@ public class DefaultHandle {
     }
 
     public void GET(IHttpRequest req, IHttpResponse resp) throws Exception {
-        resp.code(200).write("sd");
+        resp.code(404).close();
     }
 
     public void POST(IHttpRequest req, IHttpResponse resp) throws Exception {

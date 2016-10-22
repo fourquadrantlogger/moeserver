@@ -23,8 +23,9 @@ public class nettyServer implements IHttpServer {
         return BufMax;
     }
 
-    public void setBufMax(int bufMax) {
+    public nettyServer setBufMax(int bufMax) {
         BufMax = bufMax;
+        return this;
     }
 
     private int BufMax = 1024 * 1024 * 10;
