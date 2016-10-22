@@ -32,7 +32,7 @@
 ```
 public class Buy extends DefaultHandle {
     @Override
-    public void GET(HttpRequest req, HttpResponse resp) throws IOException {
+    public void GET(IHttpRequest req, IHttpResponse resp) throws IOException {
         resp.write("get");
     }
 }
