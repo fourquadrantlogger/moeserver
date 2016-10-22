@@ -19,7 +19,15 @@ import java.net.InetSocketAddress;
  * Created by timeloveboy on 2016/10/22.
  */
 public class nettyServer implements IHttpServer {
+    public int getBufMax() {
+        return BufMax;
+    }
 
+    public void setBufMax(int bufMax) {
+        BufMax = bufMax;
+    }
+
+    private int BufMax = 1024 * 1024 * 10;
     private String modulePath;
     private InetSocketAddress addr;
 
@@ -47,7 +55,7 @@ public class nettyServer implements IHttpServer {
                             ch.pipeline().addLast(new HttpResponseEncoder());
                             // server端接收到的是httpRequest，所以要使用HttpRequestDecoder进行解码
                             ch.pipeline().addLast(new HttpRequestDecoder());
-                            ch.pipeline().addLast(new HttpObjectAggregator(65536));
+                            ch.pipeline().addLast(new HttpObjectAggregator(BufMax));
                             ch.pipeline().addLast(new nettyRouterDispatcher(modulePath));
                         }
                     }).option(ChannelOption.SO_BACKLOG, 128)
