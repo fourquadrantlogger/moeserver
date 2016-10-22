@@ -1,6 +1,5 @@
 package com.github.timeloveboy.moeserver;
 
-import java.io.IOException;
 
 /**
  * Created by timeloveboy on 16-9-10.
@@ -10,27 +9,27 @@ public class DefaultHandle {
 
     }
 
-    public void GET(HttpRequest req, HttpResponse resp) throws IOException {
+    public void GET(IHttpRequest req, IHttpResponse resp) throws Exception {
+        resp.code(200).write("sd");
+    }
+
+    public void POST(IHttpRequest req, IHttpResponse resp) throws Exception {
         resp.code(404).close();
     }
 
-    public void POST(HttpRequest req, HttpResponse resp) throws IOException {
+    public void PUT(IHttpRequest req, IHttpResponse resp) throws Exception {
         resp.code(404).close();
     }
 
-    public void PUT(HttpRequest req, HttpResponse resp) throws IOException {
+    public void DELETE(IHttpRequest req, IHttpResponse resp) throws Exception {
         resp.code(404).close();
     }
 
-    public void DELETE(HttpRequest req, HttpResponse resp) throws IOException {
+    public void TRACE(IHttpRequest req, IHttpResponse resp) throws Exception {
         resp.code(404).close();
     }
 
-    public void TRACE(HttpRequest req, HttpResponse resp) throws IOException {
-        resp.code(404).close();
-    }
-
-    public void HEAD(HttpRequest req, HttpResponse resp) throws IOException {
+    public void HEAD(IHttpRequest req, IHttpResponse resp) throws Exception {
         resp.code(404).close();
     }
 }

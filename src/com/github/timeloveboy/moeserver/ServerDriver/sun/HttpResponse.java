@@ -1,5 +1,6 @@
-package com.github.timeloveboy.moeserver;
+package com.github.timeloveboy.moeserver.ServerDriver.sun;
 
+import com.github.timeloveboy.moeserver.IHttpResponse;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
@@ -9,7 +10,7 @@ import java.util.List;
 /**
  * Created by timeloveboy on 16-9-10.
  */
-public class HttpResponse {
+public class HttpResponse extends IHttpResponse {
     private HttpExchange exchange;
     private Integer code = 400;
 
@@ -17,11 +18,13 @@ public class HttpResponse {
         this.exchange = exchange;
     }
 
-    public HttpResponse code(Integer responsecode) throws IOException {
+    @Override
+    public HttpResponse code(Integer responsecode) throws Exception {
         code = responsecode;
         return this;
     }
 
+    @Override
     public HttpResponse header(String key, String value) {
         if (exchange.getResponseHeaders().containsKey(key)) {
             List<String> values = new LinkedList<>();
@@ -33,6 +36,7 @@ public class HttpResponse {
         return this;
     }
 
+    @Override
     public HttpResponse setcookie(String key, String value) {
         String cookie = " " + key + "=" + value;
         List<String> values = new LinkedList<>();
@@ -48,26 +52,24 @@ public class HttpResponse {
         return this;
     }
 
-
+    @Override
     public void write(String data) throws IOException {
         exchange.sendResponseHeaders(code, 0);
         exchange.getResponseBody().write(data.getBytes());
         exchange.getResponseBody().close();
     }
 
-    ;
 
+    @Override
     public void write(byte[] data) throws IOException {
         exchange.sendResponseHeaders(code, 0);
         exchange.getResponseBody().write(data);
         exchange.getResponseBody().close();
     }
 
-    ;
-
+    @Override
     public void close() throws IOException {
         exchange.getResponseBody().close();
     }
 
-    ;
 }

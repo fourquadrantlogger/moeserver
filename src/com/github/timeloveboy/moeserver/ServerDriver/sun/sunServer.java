@@ -29,7 +29,7 @@ public class sunServer implements IHttpServer {
 
     @Override
     public void start() {
-        server.createContext("/", new Routers(modulePath));//所有的路由,都交给Mainhandler处理
+        server.createContext("/", new sunRouterDispatcher(modulePath));//所有的路由,都交给Mainhandler处理
         server.setExecutor(Executors.newCachedThreadPool());
         server.start();
     }

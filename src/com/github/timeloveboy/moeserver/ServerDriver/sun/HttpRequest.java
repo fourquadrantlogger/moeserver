@@ -1,5 +1,6 @@
-package com.github.timeloveboy.moeserver;
+package com.github.timeloveboy.moeserver.ServerDriver.sun;
 
+import com.github.timeloveboy.moeserver.IHttpRequest;
 import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 
@@ -13,7 +14,8 @@ import java.util.Map;
 /**
  * Created by timeloveboy on 16-9-10.
  */
-public class HttpRequest {
+public class HttpRequest extends IHttpRequest {
+
     public HttpRequest(HttpExchange exchange) {
         remoteAddress = exchange.getRemoteAddress();
         requestMethod = exchange.getRequestMethod();
@@ -21,6 +23,7 @@ public class HttpRequest {
         headers = exchange.getRequestHeaders();
         List<String> ls = headers.get("Cookie");
         cookies = new HashMap<>();
+        if (ls != null)
         for (int i = 0; i < ls.size(); i++) {
             String[] s = ls.get(i).split("=");
             if (s.length == 2) {
@@ -28,6 +31,36 @@ public class HttpRequest {
             }
         }
         body = exchange.getRequestBody();
+    }
+
+    @Override
+    public InetSocketAddress getRemoteAddress() {
+        return remoteAddress;
+    }
+
+    @Override
+    public InputStream getBody() {
+        return body;
+    }
+
+    @Override
+    public String getRequestMethod() {
+        return requestMethod;
+    }
+
+    @Override
+    public URI getUrl() {
+        return url;
+    }
+
+    @Override
+    public Headers getHeaders() {
+        return headers;
+    }
+
+    @Override
+    public Map<String, String> getCookies() {
+        return cookies;
     }
 
     public final InetSocketAddress remoteAddress;

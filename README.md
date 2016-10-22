@@ -1,6 +1,9 @@
 # java http server
 
->简易java mvc 框架
+>萌萌哒的java restful mvc框架
+
++ 0.0.1 采用了sun.HttpServer线程模型
++ 0.0.2 采用了netty4.事件模型
 
 ## using maven
 ```
@@ -38,10 +41,11 @@ public class app {
 
 ## 函数列表
 #### Server
-+ getInstance()
-+ SetPort(80)
-+ RegisterModulePath("com.website.module")
-+ Run()
+Server s = Server.getInstance();
+s.RegisterDriver(new nettyServer());
+s.RegisterDriver(new sunServer());
+s.RegisterModulePath("webdemo.routers").SetPort(8090);
+s.Run();
 
 #### Handle
 请覆盖DefauldHandle类的以下方法
@@ -67,7 +71,7 @@ public class app {
     public final InputStream body;
     public final String requestMethod;
     public final URI url;
-    public final Headers headers;
+    public final Map<String, String> headers;
     public final Map<String, String> cookies;
 ```
 
