@@ -6,11 +6,21 @@
 + 0.0.2 采用了netty4.事件模型
 
 ## using maven
++ 0.0.1 采用了sun.HttpServer线程模型
 ```
 <dependency>
   <groupId>com.github.timeloveboy</groupId>
   <artifactId>moeserver</artifactId>
   <version>0.0.1</version>
+</dependency>
+```
+
++ 0.0.2 采用了netty4.事件模型
+```
+<dependency>
+  <groupId>com.github.timeloveboy</groupId>
+  <artifactId>moeserver</artifactId>
+  <version>0.0.2</version>
 </dependency>
 ```
 ## 使用说明
@@ -41,12 +51,13 @@ public class app {
 
 ## 函数列表
 #### Server
+```
 Server s = Server.getInstance();
 s.RegisterDriver(new nettyServer());
 s.RegisterDriver(new sunServer());
 s.RegisterModulePath("webdemo.routers").SetPort(8090);
 s.Run();
-
+```
 #### Handle
 请覆盖DefauldHandle类的以下方法
 
