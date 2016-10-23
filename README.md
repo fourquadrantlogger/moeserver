@@ -106,7 +106,7 @@ Intel® Xeon(R) CPU X5650 @ 2.67GHz × 12
 64 位
 ```
 
-### c=10
+### c=10 n=10000
 ```
 localhost:~ timeloveboy$ ab -n 10000 -c 10  http://localhost:8090/I
 ```
