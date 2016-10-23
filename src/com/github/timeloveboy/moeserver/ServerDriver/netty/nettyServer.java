@@ -1,6 +1,7 @@
 package com.github.timeloveboy.moeserver.ServerDriver.netty;
 
 import com.github.timeloveboy.moeserver.IHttpServer;
+import com.github.timeloveboy.moeserver.ServerDriver.Dispatcher;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -29,7 +30,7 @@ public class nettyServer implements IHttpServer {
     }
 
     private int BufMax = 1024 * 1024 * 10;
-    private String modulePath;
+
     private InetSocketAddress addr;
 
     @Override
@@ -39,7 +40,7 @@ public class nettyServer implements IHttpServer {
 
     @Override
     public void createContext(String ModulePath) {
-        this.modulePath = ModulePath;
+        Dispatcher.setModulePath(ModulePath);
     }
 
     @Override
@@ -57,7 +58,7 @@ public class nettyServer implements IHttpServer {
                             // server端接收到的是httpRequest，所以要使用HttpRequestDecoder进行解码
                             ch.pipeline().addLast(new HttpRequestDecoder());
                             ch.pipeline().addLast(new HttpObjectAggregator(BufMax));
-                            ch.pipeline().addLast(new nettyRouterDispatcher(modulePath));
+                            ch.pipeline().addLast(new nettyRouterDispatcher());
                         }
                     }).option(ChannelOption.SO_BACKLOG, 128)
                     .childOption(ChannelOption.SO_KEEPALIVE, true);

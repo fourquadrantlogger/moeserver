@@ -1,6 +1,7 @@
 package com.github.timeloveboy.moeserver.ServerDriver.sun;
 
 import com.github.timeloveboy.moeserver.IHttpServer;
+import com.github.timeloveboy.moeserver.ServerDriver.Dispatcher;
 import com.sun.net.httpserver.HttpServer;
 
 import java.net.InetSocketAddress;
@@ -10,8 +11,6 @@ import java.net.InetSocketAddress;
  */
 public class sunServer implements IHttpServer {
     private HttpServer server;
-    private String modulePath;
-
     @Override
     public void create(InetSocketAddress addr) {
         try {
@@ -23,12 +22,12 @@ public class sunServer implements IHttpServer {
 
     @Override
     public void createContext(String ModulePath) {
-        this.modulePath = ModulePath;
+        Dispatcher.setModulePath(ModulePath);
     }
 
     @Override
     public void start() {
-        server.createContext("/", new sunRouterDispatcher(modulePath));//所有的路由,都交给Mainhandler处理
+        server.createContext("/", new sunRouterDispatcher());//所有的路由,都交给Mainhandler处理
         server.setExecutor(null);
         server.start();
     }
