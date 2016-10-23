@@ -50,8 +50,13 @@ public class Buy extends DefaultHandle {
 ```
 public class app {
     public static void main(String[] args) throws Exception {
-        Server s = Server.getInstance().RegisterModulePath("com.moe.module").SetPort(8090);
-        s.Run();
+       Server s = Server.getInstance();
+
+       s.RegisterDriver(new nettyServer().setBufMax(1024 * 1));
+       //s.RegisterDriver(new sunServer());
+       //s.RegisterDriver(new jettyServer());
+       s.RegisterModulePath("webdemo.routers").SetPort(8090);
+       s.Run();
     }
 }
 
