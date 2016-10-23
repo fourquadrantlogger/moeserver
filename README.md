@@ -96,31 +96,34 @@ s.Run();
 + write(bytes)
 + close()
 
-#### 不服跑个分
+## 不服跑个分
 
-+ sun.线程模式
+### 机器
+```
+ubuntu 16.04
+15.7 GiB
+Intel® Xeon(R) CPU X5650 @ 2.67GHz × 12
+64 位
+```
 
+### c=10
 ```
 localhost:~ timeloveboy$ ab -n 10000 -c 10  http://localhost:8090/I
-Requests per second:    4389.81 [#/sec] (mean)
 ```
++ sun.线程模式 12688.99 [#/sec] (mean)
 
-+ netty事件模式
++ netty事件模式 19350.82 [#/sec] (mean)
 
-```
-localhost:~ timeloveboy$ ab -n 10000 -c 10  http://localhost:8090/I
-Requests per second:    5849.84 [#/sec] (mean)
-```
++ jetty  16883.56 [#/sec] (mean)
 
-+ jetty
+
+### c=100 n=100000
 
 ```
-localhost:~ timeloveboy$ ab -n 10000 -c 10  http://localhost:8090/I
-Requests per second:    5487.36 [#/sec] (mean)
+localhost:~ timeloveboy$ ab -n 100000 -c 100  http://localhost:8090/I
 ```
++ sun.线程模式  10409.97 [#/sec] (mean)
 
++ netty事件模式 18835.13 [#/sec] (mean)
 
-
-每次的测试结果，浮动比较大，感觉其实差不多
-
-//不过，我似乎记得，go某些nb的web引擎的跑分，都是上万的...
++ jetty 18025.67 [#/sec] (mean)

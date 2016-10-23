@@ -16,9 +16,9 @@ public class I extends DefaultHandle {
     public void GET(IHttpRequest req, IHttpResponse resp) throws Exception {
         resp.code(200).write("hello");
         Main.count++;
-        if (Main.count % 1000 == 0) {
-            Main.count = 1;
-            Log.v(new Date().getTime() / 1000);
+        if (new Date().getTime()- Main.t.getTime()>=1000) {
+            Log.v(Main.count);
+            Main.t=new Date();
         }
     }
 }
