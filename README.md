@@ -77,24 +77,35 @@ s.Run();
 + 在delete中执行delete操作。
 
 #### Request
-以下成员均可访问
 ```
-    public final InetSocketAddress remoteAddress;
-    public final InputStream body;
-    public final String requestMethod;
-    public final URI url;
-    public final Map<String, String> headers;
-    public final Map<String, String> cookies;
+   public InetSocketAddress getRemoteAddress()
+   
+   public InputStream getBody()
+   
+   public String getRequestMethod() 
+
+   public URI getUrl() 
+
+   public Map getHeaders()
+
+   public Map<String, String> getCookies()
 ```
 
 
 #### Response
-+ code(200)
-+ header("Content-Type","text/html")
-+ setcookie("Content-Type","text/html")
-+ write("")
-+ write(bytes)
-+ close()
+```
+public IHttpResponse code(Integer responsecode) 
+
+public IHttpResponse header(String key, String value)
+
+public IHttpResponse setcookie(String key, String value) 
+
+public void write(String data) 
+
+public void write(byte[] data) 
+
+public void close() 
+```
 
 ## 不服跑个分
 
