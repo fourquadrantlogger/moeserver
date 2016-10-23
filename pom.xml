@@ -24,6 +24,7 @@
             </plugin>
         </plugins>
         <sourceDirectory>src</sourceDirectory>
+        <testSourceDirectory>test</testSourceDirectory>
     </build>
     <scm>
         <connection>scm:git:git://github.com/timeloveboy/moeserver.git</connection>
@@ -31,6 +32,16 @@
         <url>https://github.com/timeloveboy/moeserver</url>
         <tag>HEAD</tag>
     </scm>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
     <profiles>
         <profile>
             <id>release</id>
@@ -113,16 +124,7 @@
                     </plugin>
                 </plugins>
             </build>
-            <distributionManagement>
-                <snapshotRepository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-                </snapshotRepository>
-                <repository>
-                    <id>ossrh</id>
-                    <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-                </repository>
-            </distributionManagement>
+
         </profile>
     </profiles>
     <dependencies>
