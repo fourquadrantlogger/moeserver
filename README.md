@@ -112,6 +112,15 @@ localhost:~ timeloveboy$ ab -n 10000 -c 10  http://localhost:8090/I
 Requests per second:    5849.84 [#/sec] (mean)
 ```
 
++ jetty
+
+```
+localhost:~ timeloveboy$ ab -n 10000 -c 10  http://localhost:8090/I
+Requests per second:    5487.36 [#/sec] (mean)
+```
+
+
+
 每次的测试结果，浮动比较大，感觉其实差不多
 
 //不过，我似乎记得，go web带mongo数据库查询的跑分，都能上万...
