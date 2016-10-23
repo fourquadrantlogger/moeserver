@@ -3,7 +3,7 @@
 >萌萌哒的java restful mvc框架
 
 + 0.0.1 采用了sun.HttpServer线程模型
-+ 0.0.2 采用了netty4.事件模型
++ 0.0.2 采用了netty4引擎和jetty引擎
 
 ## using maven
 + 0.0.1 采用了sun.HttpServer线程模型
@@ -55,6 +55,7 @@ public class app {
 Server s = Server.getInstance();
 s.RegisterDriver(new nettyServer());
 s.RegisterDriver(new sunServer());
+s.RegisterDriver(new jettyServer());
 s.RegisterModulePath("webdemo.routers").SetPort(8090);
 s.Run();
 ```
