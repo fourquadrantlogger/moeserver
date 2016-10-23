@@ -15,7 +15,7 @@
 </dependency>
 ```
 
-+ 0.0.2 采用了netty4.事件模型
++ 0.0.2 添加了netty4和jetty引擎
 ```
 <dependency>
   <groupId>com.github.timeloveboy</groupId>
