@@ -1,6 +1,6 @@
 # java http server
 
->萌萌哒的java restful mvc框架
+>萌萌哒的java restful api框架
 
 + 0.0.1 采用了sun.HttpServer线程模型
 + 0.0.2 采用了netty4引擎和jetty引擎
