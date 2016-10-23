@@ -1,24 +1,27 @@
 package com.github.timeloveboy.moeserver;
 
+import utils.Log;
+import utils.Printer;
+
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.util.Date;
 
 /**
  * Created by timeloveboy on 16-9-10.
  */
 public class Server {
     private static Server ourInstance = new Server();
-
-    public static Server getInstance() {
-        return ourInstance;
-    }
+    private String ModulePath = "";
+    private InetSocketAddress addr;
+    private IHttpServer server;
 
     private Server() {
     }
 
-    private String ModulePath = "";
-    private InetSocketAddress addr;
-    private IHttpServer server;
+    public static Server getInstance() {
+        return ourInstance;
+    }
 
     public void RegisterDriver(IHttpServer s) throws Exception {
         if (s != null) {
@@ -38,9 +41,12 @@ public class Server {
     }
 
     public void Run() throws IOException {
+        new Printer().Print();
         server.create(addr);
         server.createContext(ModulePath);
+        Log.v(new Date(), " Running at:", addr);
         server.start();
 
     }
+
 }
