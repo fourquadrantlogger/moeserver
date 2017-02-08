@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * Created by timeloveboy on 2016/10/23.
  */
-public class I extends DefaultHandle {
+public class index extends DefaultHandle {
     @Override
     public void GET(IHttpRequest req, IHttpResponse resp) throws Exception {
         resp.code(200).write("hello");

@@ -25,6 +25,14 @@ public class Dispatcher {
 
     private static String ModulePath;
 
+    static boolean EsixtClass(String classname) {
+        try {
+            Class modulehandle = Class.forName(classname);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
     public static void dispatch(IHttpRequest req, IHttpResponse resp) {
         String classname = req.getUrl().getPath().substring(1).replace('/', '.');
         Router router = new Router(classname, req.getRequestMethod());
@@ -41,20 +49,35 @@ public class Dispatcher {
                 Method method = modulehandle.getDeclaredMethod(req.getRequestMethod(), c);
                 method.invoke(o, req, resp);
             } else {
-                Class modulehandle = Class.forName(ModulePath + "." + classname);
-                if (DefaultHandle.class.isAssignableFrom(modulehandle)) {
-                    Object o = modulehandle.newInstance();
 
+                if (EsixtClass(ModulePath + "." + classname)) {
 
-                    Method method = modulehandle.getDeclaredMethod(req.getRequestMethod(), c);
-                    method.invoke(o, req, resp);
-                } else {
-                    DefaultHandle handle = new DefaultHandle();
+                    Class modulehandle = Class.forName(ModulePath + "." + classname);
+                    if (DefaultHandle.class.isAssignableFrom(modulehandle)) {
+                        Object o = modulehandle.newInstance();
+                        Method method = modulehandle.getDeclaredMethod(req.getRequestMethod(), c);
+                        method.invoke(o, req, resp);
+                    } else {
+                        DefaultHandle handle = new DefaultHandle();
 
-                    Method method = handle.getClass().getDeclaredMethod(req.getRequestMethod(), c);
-                    method.invoke(handle, req, resp);
+                        Method method = handle.getClass().getDeclaredMethod(req.getRequestMethod(), c);
+                        method.invoke(handle, req, resp);
+                    }
+                    routermap.put(router, modulehandle);
+                } else if (EsixtClass(ModulePath + "." + classname + ".index")) {
+                    Class modulehandle = Class.forName(ModulePath + "." + classname + ".index");
+                    if (DefaultHandle.class.isAssignableFrom(modulehandle)) {
+                        Object o = modulehandle.newInstance();
+                        Method method = modulehandle.getDeclaredMethod(req.getRequestMethod(), c);
+                        method.invoke(o, req, resp);
+                    } else {
+                        DefaultHandle handle = new DefaultHandle();
+
+                        Method method = handle.getClass().getDeclaredMethod(req.getRequestMethod(), c);
+                        method.invoke(handle, req, resp);
+                    }
+                    routermap.put(router, modulehandle);
                 }
-                routermap.put(router, modulehandle);
             }
 
             return;
