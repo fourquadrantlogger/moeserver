@@ -50,9 +50,7 @@ public class Dispatcher {
 
                 Method method = modulehandle.getDeclaredMethod(req.getRequestMethod(), c);
                 method.invoke(o, req, resp);
-            } else {
-
-                if (EsixtClass(ModulePath + "." + classname)) {
+            } else if (EsixtClass(ModulePath + "." + classname)) {
 
                     Class modulehandle = Class.forName(ModulePath + "." + classname);
                     if (DefaultHandle.class.isAssignableFrom(modulehandle)) {
@@ -96,7 +94,6 @@ public class Dispatcher {
                     routermap.put(router, modulehandle);
                 }
 
-            }
 
             return;
 
