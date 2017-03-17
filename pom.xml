@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.timeloveboy</groupId>
     <artifactId>moeserver</artifactId>
-    <version>0.0.2</version>
+    <version>0.1.0</version>
     <packaging>jar</packaging>
     <name>moe java api server</name>
     <url>https://github.com/timeloveboy/moeserver</url>

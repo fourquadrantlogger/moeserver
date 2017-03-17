@@ -3,7 +3,7 @@ package webdemo.routers.link;
 import com.github.timeloveboy.moeserver.DefaultHandle;
 import com.github.timeloveboy.moeserver.IHttpRequest;
 import com.github.timeloveboy.moeserver.IHttpResponse;
-import utils.Log;
+import com.github.timeloveboy.moeserver.utils.Log;
 import webdemo.Main;
 
 import java.util.Date;
