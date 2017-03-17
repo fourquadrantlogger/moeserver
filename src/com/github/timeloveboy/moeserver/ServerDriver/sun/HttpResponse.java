@@ -4,6 +4,7 @@ import com.github.timeloveboy.moeserver.IHttpResponse;
 import com.sun.net.httpserver.HttpExchange;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -67,6 +68,19 @@ public class HttpResponse extends IHttpResponse {
         exchange.getResponseBody().close();
     }
 
+    @Override
+    public void write(InputStream in) throws IOException {
+        exchange.sendResponseHeaders(code, 0);
+
+        byte[] data = new byte[1024];
+        int bytesRead = in.read(data);
+        while (bytesRead != -1) {
+            exchange.getResponseBody().write(data, 0, bytesRead);
+            bytesRead = in.read(data);
+        }
+
+        exchange.getResponseBody().close();
+    }
     @Override
     public void close() throws IOException {
         exchange.getResponseBody().close();

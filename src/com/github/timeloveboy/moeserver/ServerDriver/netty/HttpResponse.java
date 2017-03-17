@@ -8,6 +8,7 @@ import io.netty.handler.codec.http.FullHttpResponse;
 import io.netty.handler.codec.http.HttpResponseStatus;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
@@ -85,6 +86,24 @@ public class HttpResponse extends IHttpResponse {
         ctx.close();
     }
 
+    @Override
+    public void write(InputStream in) throws IOException {
+
+        response.setStatus(new HttpResponseStatus(code, ""));
+        response.headers().set(CONTENT_LENGTH, response.content().readableBytes());
+
+        byte[] b = new byte[1024];
+        int bytesRead = in.read(b);
+        while (bytesRead != -1) {
+            response.content().writeBytes(b, 0, bytesRead);
+            bytesRead = in.read(b);
+        }
+
+        ctx.write(response);
+        ctx.flush();
+        ctx.close();
+
+    }
     @Override
     public void close() throws IOException {
         ctx.close();

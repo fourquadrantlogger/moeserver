@@ -5,6 +5,7 @@ import com.github.timeloveboy.moeserver.IHttpResponse;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by timeloveboy on 16-9-10.
@@ -53,6 +54,20 @@ public class HttpResponse extends IHttpResponse {
         response.getOutputStream().close();
     }
 
+    @Override
+    public void write(InputStream in) throws IOException {
+        response.setStatus(code);
+
+        byte[] data = new byte[1024];
+        int bytesRead = in.read(data);
+        while (bytesRead != -1) {
+            response.getOutputStream().write(data, 0, bytesRead);
+            bytesRead = in.read(data);
+        }
+
+        response.flushBuffer();
+        response.getOutputStream().close();
+    }
     @Override
     public void close() throws IOException {
         response.getOutputStream().close();
