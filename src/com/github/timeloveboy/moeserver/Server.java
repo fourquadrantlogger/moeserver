@@ -1,7 +1,8 @@
 package com.github.timeloveboy.moeserver;
 
-import com.github.timeloveboy.moeserver.utils.Log;
-import com.github.timeloveboy.moeserver.utils.Printer;
+
+import com.github.timeloveboy.utils.Log;
+import com.github.timeloveboy.utils.Printer;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
