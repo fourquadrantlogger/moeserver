@@ -1,4 +1,4 @@
-package com.github.timeloveboy.moeserver.utils;
+package com.github.timeloveboy.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
