@@ -10,7 +10,11 @@ import java.util.Map;
  */
 public class UrlUtil {
     public static Map<String, String> splitQuery(String query) throws UnsupportedEncodingException {
+
         Map<String, String> query_pairs = new LinkedHashMap<String, String>();
+        if (query == null) {
+            return query_pairs;
+        }
         String[] pairs = query.split("&");
         for (String pair : pairs) {
             int idx = pair.indexOf("=");
