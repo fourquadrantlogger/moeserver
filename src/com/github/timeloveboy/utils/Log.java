@@ -1,4 +1,4 @@
-package com.github.timeloveboy.moeserver.utils;
+package com.github.timeloveboy.utils;
 
 /**
  * Created by timeloveboy on 16-9-10.
