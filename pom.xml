@@ -24,6 +24,17 @@
                     <showDeprecation>true</showDeprecation>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
         </plugins>
 
         <sourceDirectory>src</sourceDirectory>
@@ -141,6 +152,11 @@
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-server</artifactId>
             <version>9.2.10.v20150310</version>
+        </dependency>
+        <dependency>
+            <groupId>com.github.timeloveboy</groupId>
+            <artifactId>utils</artifactId>
+            <version>0.1</version>
         </dependency>
     </dependencies>
     <developers>
