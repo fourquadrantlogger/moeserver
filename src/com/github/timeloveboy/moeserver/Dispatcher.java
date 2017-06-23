@@ -30,7 +30,7 @@ public class Dispatcher {
     }
     public static void dispatch(IHttpRequest req, IHttpResponse resp) {
         String path = req.getUrl().getPath();
-        if (staticFileHandle != null && path.substring(0, staticFileHandle.getStaticurlroot().length()).equals(staticFileHandle.getStaticurlroot())) {
+        if (staticFileHandle != null && path.length() >= staticFileHandle.getStaticurlroot().length() && path.substring(0, staticFileHandle.getStaticurlroot().length()).equals(staticFileHandle.getStaticurlroot())) {
             try {
                 staticFileHandle.GET(req, resp);
             } catch (Exception e) {
