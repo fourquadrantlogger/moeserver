@@ -1,7 +1,7 @@
 package com.github.timeloveboy.moeserver.ServerDriver.netty;
 
+import com.github.timeloveboy.moeserver.Dispatcher;
 import com.github.timeloveboy.moeserver.IHttpServer;
-import com.github.timeloveboy.moeserver.ServerDriver.Dispatcher;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelInitializer;
@@ -20,6 +20,9 @@ import java.net.InetSocketAddress;
  * Created by timeloveboy on 2016/10/22.
  */
 public class nettyServer implements IHttpServer {
+    private int BufMax = 1024 * 1024 * 10;
+    private InetSocketAddress addr;
+
     public int getBufMax() {
         return BufMax;
     }
@@ -28,10 +31,6 @@ public class nettyServer implements IHttpServer {
         BufMax = bufMax;
         return this;
     }
-
-    private int BufMax = 1024 * 1024 * 10;
-
-    private InetSocketAddress addr;
 
     @Override
     public void create(InetSocketAddress addr) {

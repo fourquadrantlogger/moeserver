@@ -1,7 +1,7 @@
 package com.github.timeloveboy.moeserver.ServerDriver.jetty;
 
+import com.github.timeloveboy.moeserver.Dispatcher;
 import com.github.timeloveboy.moeserver.IHttpServer;
-import com.github.timeloveboy.moeserver.ServerDriver.Dispatcher;
 import org.eclipse.jetty.server.Server;
 
 import java.net.InetSocketAddress;

@@ -31,6 +31,11 @@ public class Server {
             throw new Exception("Driver Cann't ==null");
         }
     }
+
+    public Server Static(String staticurlroot, String localpathroot) {
+        Dispatcher.staticFileHandle = new StaticFileHandle(staticurlroot, localpathroot);
+        return this;
+    }
     public Server SetPort(int port) {
         addr = new InetSocketAddress(port);//
         return this;

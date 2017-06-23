@@ -1,7 +1,7 @@
 package com.github.timeloveboy.moeserver.ServerDriver.sun;
 
+import com.github.timeloveboy.moeserver.Dispatcher;
 import com.github.timeloveboy.moeserver.IHttpServer;
-import com.github.timeloveboy.moeserver.ServerDriver.Dispatcher;
 import com.sun.net.httpserver.HttpServer;
 
 import java.net.InetSocketAddress;

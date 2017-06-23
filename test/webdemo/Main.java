@@ -14,7 +14,7 @@ public class Main {
         s.RegisterDriver(new nettyServer().setBufMax(1024 * 1));
         //s.RegisterDriver(new sunServer());
         //s.RegisterDriver(new jettyServer());
-        s.RegisterModulePath("webdemo.routers").SetPort(8098);
+        s.RegisterModulePath("webdemo.routers").Static("/static", "/CODE/github.com/timeloveboy/moeserver").SetPort(8098);
         s.Run();
     }
 }

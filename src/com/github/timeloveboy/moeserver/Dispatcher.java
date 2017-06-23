@@ -1,9 +1,4 @@
-package com.github.timeloveboy.moeserver.ServerDriver;
-
-import com.github.timeloveboy.moeserver.DefaultHandle;
-import com.github.timeloveboy.moeserver.IHttpRequest;
-import com.github.timeloveboy.moeserver.IHttpResponse;
-import com.github.timeloveboy.moeserver.Router;
+package com.github.timeloveboy.moeserver;
 
 import java.lang.reflect.Method;
 import java.util.concurrent.ConcurrentHashMap;
@@ -13,7 +8,9 @@ import java.util.concurrent.ConcurrentMap;
  * Created by timeloveboy on 2016/10/23.
  */
 public class Dispatcher {
+    public static StaticFileHandle staticFileHandle;
     private static ConcurrentMap<Router, Class<? extends DefaultHandle>> routermap = new ConcurrentHashMap<>();
+    private static String ModulePath;
 
     public static String getModulePath() {
         return ModulePath;
@@ -22,8 +19,6 @@ public class Dispatcher {
     public static void setModulePath(String modulePath) {
         ModulePath = modulePath;
     }
-
-    private static String ModulePath;
 
     static boolean EsixtClass(String classname) {
         try {
@@ -34,8 +29,19 @@ public class Dispatcher {
         }
     }
     public static void dispatch(IHttpRequest req, IHttpResponse resp) {
-        String classname = req.getUrl().getPath().substring(1).replace('/', '.');
-
+        String path = req.getUrl().getPath();
+        if (staticFileHandle != null && path.substring(0, staticFileHandle.getStaticurlroot().length()).equals(staticFileHandle.getStaticurlroot())) {
+            try {
+                staticFileHandle.GET(req, resp);
+            } catch (Exception e) {
+                try {
+                    staticFileHandle.NOTFOUNT(req, resp);
+                } catch (Exception ee) {
+                    ee.printStackTrace();
+                }
+            }
+        }
+        String classname = path.substring(1).replace('/', '.');
         Router router = new Router(classname, req.getRequestMethod());
 
         Class c[] = new Class[2];
