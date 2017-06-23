@@ -34,6 +34,15 @@ Sun Oct 23 22:31:03 CST 2016 Running at:0.0.0.0/0.0.0.0:8090
   <version>0.0.2</version>
 </dependency>
 ```
+
++ 0.1.0 添加了staticFileHandler,帮助web站点处理静态文件
+```
+<dependency>
+  <groupId>com.github.timeloveboy</groupId>
+  <artifactId>moeserver</artifactId>
+  <version>0.1.0</version>
+</dependency>
+```
 ## 使用说明
 
 + 1.指定您的modulepackage路径和端口号
@@ -53,11 +62,11 @@ public class app {
     public static void main(String[] args) throws Exception {
        Server s = Server.getInstance();
 
-       s.RegisterDriver(new nettyServer().setBufMax(1024 * 1));
-       //s.RegisterDriver(new sunServer());
-       //s.RegisterDriver(new jettyServer());
-       s.RegisterModulePath("webdemo.routers").SetPort(8090);
-       s.Run();
+        s.RegisterDriver(new nettyServer().setBufMax(1024 * 1));
+        //s.RegisterDriver(new sunServer());
+        //s.RegisterDriver(new jettyServer());
+        s.RegisterModulePath("webdemo.routers").Static("/static", "/CODE/github.com/timeloveboy/moeserver").SetPort(8098);
+        s.Run();
     }
 }
 
@@ -69,6 +78,7 @@ public class app {
 #### Server
 ```
 Server s = Server.getInstance();
+s.Static("/static", "/CODE/github.com/timeloveboy/moeserver")
 s.RegisterDriver(new nettyServer());
 s.RegisterDriver(new sunServer());
 s.RegisterDriver(new jettyServer());
