@@ -15,6 +15,7 @@ Sun Oct 23 22:31:03 CST 2016 Running at:0.0.0.0/0.0.0.0:8090
 + 0.0.1 采用了sun.HttpServer线程模型
 + 0.0.2 采用了netty4引擎和jetty引擎
 + 0.1.0 改进了部分方法，增加了utils库
++ 0.1.1 移除了jetty
 
 ## using maven
 + 0.0.1 采用了sun.HttpServer线程模型

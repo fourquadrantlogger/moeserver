@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github.timeloveboy</groupId>
     <artifactId>moeserver</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1</version>
     <packaging>jar</packaging>
     <name>moe java api server</name>
     <url>https://github.com/timeloveboy/moeserver</url>
@@ -149,11 +149,6 @@
             <version>4.0.4.Final</version>
         </dependency>
         <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>9.2.10.v20150310</version>
-        </dependency>
-        <dependency>
             <groupId>com.github.timeloveboy</groupId>
             <artifactId>utils</artifactId>
             <version>0.1</version>
@@ -174,7 +169,7 @@
     </licenses>
     <properties>
         <netty.version>4.0.4.Final</netty.version>
-        <jetty.version>9.3.13</jetty.version>
+
         <java-version>1.8</java-version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
