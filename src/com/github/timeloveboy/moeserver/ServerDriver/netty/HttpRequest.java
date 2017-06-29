@@ -17,6 +17,13 @@ import java.util.Map;
  */
 public class HttpRequest extends IHttpRequest {
 
+    public InetSocketAddress remoteAddress;
+    public ByteBuf buf;
+    public String requestMethod;
+    public URI url;
+    public HttpHeaders httpheaders;
+    public Map<String, String> cookies;
+
     public HttpRequest(ChannelHandlerContext ctx, Object msg) {
         if (msg instanceof io.netty.handler.codec.http.FullHttpRequest) {
             io.netty.handler.codec.http.FullHttpRequest request = (io.netty.handler.codec.http.FullHttpRequest) msg;
@@ -83,11 +90,4 @@ public class HttpRequest extends IHttpRequest {
             }
         return cookies;
     }
-
-    public InetSocketAddress remoteAddress;
-    public ByteBuf buf;
-    public String requestMethod;
-    public URI url;
-    public HttpHeaders httpheaders;
-    public Map<String, String> cookies;
 }

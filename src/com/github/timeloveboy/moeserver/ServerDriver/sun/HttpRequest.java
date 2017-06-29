@@ -16,6 +16,13 @@ import java.util.Map;
  */
 public class HttpRequest extends IHttpRequest {
 
+    public final InetSocketAddress remoteAddress;
+    public final InputStream body;
+    public final String requestMethod;
+    public final URI url;
+    public final Headers headers;
+    public final Map<String, String> cookies;
+
     public HttpRequest(HttpExchange exchange) {
         remoteAddress = exchange.getRemoteAddress();
         requestMethod = exchange.getRequestMethod();
@@ -62,11 +69,4 @@ public class HttpRequest extends IHttpRequest {
     public Map<String, String> getCookies() {
         return cookies;
     }
-
-    public final InetSocketAddress remoteAddress;
-    public final InputStream body;
-    public final String requestMethod;
-    public final URI url;
-    public final Headers headers;
-    public final Map<String, String> cookies;
 }

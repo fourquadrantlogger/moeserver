@@ -17,6 +17,12 @@ import java.util.Map;
  * Created by timeloveboy on 16-9-10.
  */
 public class HttpRequest extends IHttpRequest {
+    public InetSocketAddress remoteAddress;
+    public ServletInputStream body;
+    public String requestMethod;
+    public HttpURI url;
+    public Map<String, String> headers;
+    public Map<String, String> cookies;
     private Request baseRequest;
     private HttpServletRequest httpServletRequest;
 
@@ -89,11 +95,4 @@ public class HttpRequest extends IHttpRequest {
             }
         return cookies;
     }
-
-    public InetSocketAddress remoteAddress;
-    public ServletInputStream body;
-    public String requestMethod;
-    public HttpURI url;
-    public Map<String, String> headers;
-    public Map<String, String> cookies;
 }
